@@ -1,3 +1,5 @@
+import { Seo } from "@/components/seo/Seo";
+import { homePageJsonLd } from "@/components/seo/jsonLd";
 import RetroNav from "@/components/RetroNav";
 import HeroSection from "@/components/HeroSection";
 import ParallaxSection from "@/components/ParallaxSection";
@@ -31,6 +33,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden">
+      <Seo
+        title="Drinkat — درينك ناو | Drink Now Since 2019"
+        description="Jordanian coffee shop with three branches: Airport Road Amman, Hashemite University Zarqa, and Middle East University Amman. درينك ناو!"
+        path="/"
+        titleTemplate={false}
+        jsonLd={homePageJsonLd()}
+      />
       <RetroNav />
       <main className="relative">
         <HeroSection />

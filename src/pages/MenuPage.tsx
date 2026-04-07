@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { Seo } from "@/components/seo/Seo";
 import RetroNav from "@/components/RetroNav";
 import RetroFooter from "@/components/RetroFooter";
 import ContactFab from "@/components/ContactFab";
 import { CategoryGrid } from "@/components/menu/CategoryGrid";
+import { TalabatMoreOnBanner } from "@/components/menu/TalabatMenuPromo";
 import { allCategories } from "@/components/menu/menuData";
 
 const MenuPage = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden">
+      <Seo
+        title="Menu"
+        description="Browse Drinkat drinks and food by category — juices, mocktails, coffee, milkshakes, burgers, and more. Order on Talabat or visit us in Amman and Zarqa."
+        path="/menu"
+      />
       <RetroNav />
       <main className="relative pt-24 md:pt-28 pb-16 md:pb-24">
         <div className="container mx-auto px-6">
@@ -26,6 +33,7 @@ const MenuPage = () => {
             Back to home
           </Link>
           <div className="rounded-3xl bg-white shadow-sm px-4 py-8 md:px-8 md:py-12">
+            <TalabatMoreOnBanner />
             <CategoryGrid categories={allCategories} />
           </div>
         </div>

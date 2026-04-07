@@ -16,6 +16,7 @@ import {
 } from "@/lib/motion";
 import { allCategories } from "./menu/menuData";
 import { CategoryGrid } from "./menu/CategoryGrid";
+import { TalabatMoreOnBanner } from "./menu/TalabatMenuPromo";
 
 const FEATURED_INTERVAL_MS = 2500;
 
@@ -176,6 +177,7 @@ const MenuSection = () => {
           className="rounded-3xl bg-white/95 shadow-lg px-4 py-8 md:px-8 md:py-10 max-w-6xl mx-auto"
           variants={riseIn(reducedMotion, 12)}
         >
+          <TalabatMoreOnBanner />
           <CategoryGrid categories={allCategories} embedded />
         </motion.div>
 
