@@ -56,6 +56,19 @@ const AboutSection = () => {
         </motion.p>
 
         <motion.div
+          className="mb-12 mx-auto w-full max-w-md"
+          variants={riseIn(reducedMotion, 16)}
+        >
+          <iframe
+            src="https://www.instagram.com/drinkatjo/embed"
+            title="Drinkat Instagram recent posts"
+            className="h-[520px] w-full bg-white"
+            loading="lazy"
+            allowTransparency={true}
+          />
+        </motion.div>
+
+        <motion.div
           className="grid grid-cols-3 gap-8 my-12"
           variants={sectionStagger(reducedMotion, 0.1)}
         >
