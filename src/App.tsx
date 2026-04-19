@@ -7,6 +7,8 @@ import { ContactDialogProvider } from "@/context/ContactDialogContext";
 import Index from "./pages/Index";
 import MenuPage from "./pages/MenuPage";
 import MenuCategoryPage from "./pages/MenuCategoryPage";
+import SocialsPage from "./pages/SocialsPage";
+import VisitPage from "./pages/VisitPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +24,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/menu/:categoryId" element={<MenuCategoryPage />} />
+            <Route path="/socials" element={<SocialsPage />} />
+            <Route path="/visit" element={<VisitPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

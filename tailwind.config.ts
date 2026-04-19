@@ -14,9 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        script: ["Pacifico", "cursive"],
-        rounded: ["Cocon Next Arabic", "sans-serif"],
-        arabic: ["Cocon Next Arabic", "sans-serif"],
+        sans: ['"Bebas Neue"', "ui-sans-serif", "system-ui", "sans-serif"],
+        script: ['"Bebas Neue"', "sans-serif"],
+        rounded: ['"Bebas Neue"', "sans-serif"],
+        arabic: ['"Bebas Neue"', "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

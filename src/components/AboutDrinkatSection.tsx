@@ -27,10 +27,10 @@ const AboutDrinkatSection = () => {
       {/* Teal tiles (no invert) — visible on white; invert would paint white tiles on white */}
       <WarpedCheckerboard tileOpacity={0.12} />
       <AboutFloatingDecor reducedMotion={reducedMotion} />
-      <div className="container mx-auto px-6 relative z-10 max-w-2xl pt-12 md:pt-16">
+      <div className="relative z-10 mx-auto w-full max-w-prose px-6 sm:px-8 pt-12 md:pt-16 lg:max-w-none lg:px-10 xl:px-14 2xl:px-20">
         <motion.h2
           id="about-drinkat-heading"
-          className="font-script text-4xl md:text-5xl text-foreground text-center mb-12 md:mb-14"
+          className="font-script text-4xl md:text-5xl text-foreground text-left mb-12 md:mb-14"
           initial="hidden"
           whileInView="visible"
           viewport={sectionViewportEasy}
@@ -41,7 +41,7 @@ const AboutDrinkatSection = () => {
 
         {heroSlides.length === 0 ? (
           <motion.p
-            className="font-rounded text-center text-muted-foreground"
+            className="about-read text-left text-muted-foreground text-base leading-relaxed"
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewportEasy}
@@ -53,17 +53,17 @@ const AboutDrinkatSection = () => {
           <div className="flex flex-col gap-12 md:gap-14">
             {heroSlides.map((slide) => (
               <article key={slide.title} className="text-left">
-                <h3 className="font-script text-2xl md:text-3xl text-foreground mb-2 text-balance">
+                <h3 className="font-script text-2xl md:text-3xl text-foreground mb-3 text-balance leading-tight">
                   {slide.title}
                 </h3>
-                <p className="font-rounded font-semibold text-foreground/85 text-base md:text-lg mb-4 text-balance">
+                <p className="about-read font-medium text-foreground/90 text-lg md:text-xl mb-6 text-balance leading-snug">
                   {slide.subtitle}
                 </p>
-                <div className="space-y-4">
+                <div className="space-y-5 md:space-y-6">
                   {slide.body.split(/\n\n/).map((para, idx) => (
                     <motion.p
                       key={`${slide.title}-p-${idx}`}
-                      className="font-rounded text-foreground/90 text-[0.95rem] md:text-base leading-relaxed"
+                      className="about-read text-foreground text-base md:text-lg leading-[1.75] md:leading-[1.8]"
                       initial="hidden"
                       whileInView="visible"
                       viewport={sectionViewportEasy}
@@ -81,19 +81,19 @@ const AboutDrinkatSection = () => {
                     viewport={sectionViewportEasy}
                     variants={riseIn(reducedMotion, 14)}
                   >
-                    <p className="font-rounded text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground mb-3">
+                    <p className="about-read text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground mb-3">
                       Contact
                     </p>
                     <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
                       <a
                         href={phoneToTelHref(slide.contact.phone)}
-                        className="font-rounded font-semibold text-primary underline underline-offset-4 hover:opacity-90"
+                        className="about-read font-semibold text-base text-primary underline underline-offset-4 hover:opacity-90 tabular-nums"
                       >
                         {slide.contact.phone}
                       </a>
                       <a
                         href={`mailto:${slide.contact.email}`}
-                        className="font-rounded font-semibold text-primary underline underline-offset-4 hover:opacity-90 break-all sm:break-normal"
+                        className="about-read font-semibold text-base text-primary underline underline-offset-4 hover:opacity-90 break-all sm:break-normal"
                       >
                         {slide.contact.email}
                       </a>

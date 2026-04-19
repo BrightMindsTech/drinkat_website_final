@@ -1,8 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import type { MouseEvent } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Briefcase, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CAREERS_FORM_URL } from "@/lib/contact";
 import drinkatLogo from "@/assets/drinkat-logo.png";
+import { NavExploreSheet } from "@/components/NavExploreSheet";
 import { SectionBackgroundVideo } from "./SectionBackgroundVideo";
 import WarpedCheckerboard from "./WarpedCheckerboard";
 import { playfulHoverTap, riseIn, sectionStagger } from "@/lib/motion";
@@ -10,40 +11,11 @@ import { playfulHoverTap, riseIn, sectionStagger } from "@/lib/motion";
 const HERO_VIDEO_SRC = "/hero-airport-branch2.mp4";
 const HERO_VIDEO_POSTER = "/parallex-photo1.jpeg";
 
-function scrollToHashId(id: string) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-}
-
-function handleVisitUsClick(
-  e: MouseEvent<HTMLAnchorElement>,
-  pathname: string,
-  hash: string,
-) {
-  if (pathname === "/" && hash === "#visit-us") {
-    e.preventDefault();
-    scrollToHashId("visit-us");
-  }
-}
-
-function handleMenuSectionClick(
-  e: MouseEvent<HTMLAnchorElement>,
-  pathname: string,
-  hash: string,
-) {
-  if (pathname === "/" && hash === "#menu") {
-    e.preventDefault();
-    scrollToHashId("menu");
-  }
-}
-
 const MotionLink = motion(Link);
+const MotionA = motion.a;
 
 const HeroSection = () => {
   const reducedMotion = useReducedMotion();
-  const location = useLocation();
 
   return (
     <section
@@ -61,6 +33,10 @@ const HeroSection = () => {
       )}
       <WarpedCheckerboard className="z-[1]" />
 
+      <div className="absolute left-4 top-4 z-20 sm:left-6 md:left-8 lg:left-10">
+        <NavExploreSheet triggerVariant="hero" />
+      </div>
+
       <motion.div
         className="container relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-3 pb-36 pt-2 sm:px-8 sm:pb-40 md:px-10 md:pb-44 lg:px-14"
         initial="hidden"
@@ -69,7 +45,7 @@ const HeroSection = () => {
       >
         <motion.div
           variants={riseIn(reducedMotion, 28)}
-          className="relative isolate z-10 -mt-16 flex w-full min-h-0 flex-col items-center gap-3 overflow-visible sm:-mt-20 md:-mt-28 lg:-mt-32 md:gap-4"
+          className="relative isolate z-10 -mt-16 flex w-full min-h-0 flex-col items-center overflow-visible sm:-mt-20 md:-mt-28 lg:-mt-32"
         >
           <img
             src={drinkatLogo}
@@ -79,43 +55,45 @@ const HeroSection = () => {
             width={2000}
             height={624}
           />
-          <p
-            className="font-arabic text-center text-2xl font-bold text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)] sm:text-3xl md:text-4xl md:tracking-wide"
-            lang="ar"
-          >
-            درينك ناو !
-          </p>
         </motion.div>
       </motion.div>
 
-      <div className="absolute inset-x-0 bottom-16 z-10 flex flex-col items-center gap-4 px-4 pt-2 sm:bottom-20 md:bottom-28 lg:bottom-32 md:gap-5">
+      <div className="absolute inset-x-0 bottom-28 z-10 flex justify-start px-4 pt-2 sm:bottom-32 sm:px-8 md:bottom-40 md:px-10 lg:bottom-44 lg:px-14">
         <motion.nav
-          className="flex w-full max-w-xs justify-center sm:max-w-sm"
+          className="flex flex-col items-start gap-3 sm:gap-4"
           aria-label="Quick links"
           initial={reducedMotion ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
           <MotionLink
-            to="/#visit-us"
-            className="font-rounded inline-flex min-h-[2.75rem] w-full items-center justify-center rounded-2xl border-0 bg-black/35 px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-sm backdrop-blur-sm transition-[background-color,opacity,transform] hover:bg-black/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98]"
-            onClick={(e) => handleVisitUsClick(e, location.pathname, location.hash)}
+            to="/menu"
+            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-2xl border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
+            aria-label="Open full menu"
+            {...playfulHoverTap(reducedMotion)}
+          >
+            Menu
+            <ChevronDown className="h-5 w-5 shrink-0 opacity-90 sm:h-6 sm:w-6" aria-hidden />
+          </MotionLink>
+          <MotionLink
+            to="/visit"
+            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center rounded-2xl border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
             {...playfulHoverTap(reducedMotion)}
           >
             Locations
           </MotionLink>
+          <MotionA
+            href={CAREERS_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-2xl border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
+            aria-label="Careers — opens application form in a new tab"
+            {...playfulHoverTap(reducedMotion)}
+          >
+            Careers
+            <Briefcase className="h-5 w-5 shrink-0 opacity-90 sm:h-6 sm:w-6" aria-hidden />
+          </MotionA>
         </motion.nav>
-
-        <MotionLink
-          to="/#menu"
-          className="font-rounded inline-flex items-center gap-1.5 rounded-xl border-0 bg-transparent px-3 py-2 text-sm font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 transition-[opacity,background-color,transform] hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/35 active:scale-[0.98]"
-          onClick={(e) => handleMenuSectionClick(e, location.pathname, location.hash)}
-          aria-label="Scroll to menu section"
-          {...playfulHoverTap(reducedMotion)}
-        >
-          Menu
-          <ChevronDown className="h-4 w-4 shrink-0 opacity-90" aria-hidden />
-        </MotionLink>
       </div>
     </section>
   );

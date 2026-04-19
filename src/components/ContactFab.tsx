@@ -8,15 +8,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useContactDialog } from "@/context/ContactDialogContext";
+import {
+  CAREERS_FORM_URL,
+  CONTACT_EMAIL,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_HREF,
+} from "@/lib/contact";
 import { playfulHoverTap } from "@/lib/motion";
 
-const PHONE_DISPLAY = "07 9663 2111";
-const PHONE_HREF = "tel:+962796632111";
-const EMAIL = "drinkatjo@gmail.com";
-const MAILTO = `mailto:${EMAIL}`;
-
-const CAREERS_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLScsr4erBQvOUwT2dNOZMcnz-cY_HlGrxUelzTbtU9TAwc5u0A/viewform";
+const MAILTO = `mailto:${CONTACT_EMAIL}`;
 
 const ContactFab = () => {
   const reducedMotion = useReducedMotion();
@@ -68,13 +68,13 @@ const ContactFab = () => {
             Complaints & suggestions
           </p>
           <a
-            href={PHONE_HREF}
+            href={CONTACT_PHONE_HREF}
             className="flex items-center gap-4 rounded-xl border-2 border-primary bg-card p-4 font-rounded font-bold text-primary hover:bg-secondary/80 transition-colors"
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Phone className="h-5 w-5" />
             </span>
-            <span className="text-lg tabular-nums">{PHONE_DISPLAY}</span>
+            <span className="text-lg tabular-nums">{CONTACT_PHONE_DISPLAY}</span>
           </a>
           <a
             href={MAILTO}
@@ -83,7 +83,7 @@ const ContactFab = () => {
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Mail className="h-5 w-5" />
             </span>
-            <span className="text-base">{EMAIL}</span>
+            <span className="text-base">{CONTACT_EMAIL}</span>
           </a>
         </div>
       </DialogContent>

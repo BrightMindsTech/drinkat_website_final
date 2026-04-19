@@ -30,17 +30,18 @@ type FloatItem = {
   delay: string;
 };
 
+/** All positions use `right-*` so decor stays on the right side of the section (text stays clear on the left). */
 const ITEMS: FloatItem[] = [
-  { Icon: CupSoda, className: "left-[4%] top-[6%] w-12 h-12 md:w-14 md:h-14", anim: "about-float-a", delay: "0s" },
-  { Icon: Sandwich, className: "right-[6%] top-[10%] w-11 h-11 md:w-[3.25rem] md:h-[3.25rem]", anim: "about-float-b", delay: "0.4s" },
-  { Icon: Coffee, className: "left-[8%] bottom-[18%] w-10 h-10 md:w-12 md:h-12", anim: "about-float-c", delay: "0.8s" },
-  { Icon: Wine, className: "right-[10%] bottom-[22%] w-10 h-10 md:w-12 md:h-12", anim: "about-float-a", delay: "1.2s" },
-  { Icon: FriesIcon, className: "left-[14%] top-[42%] w-11 h-11 md:w-[3.25rem] md:h-[3.25rem]", anim: "about-float-b", delay: "0.2s" },
-  { Icon: CupSoda, className: "right-[18%] top-[38%] w-9 h-9 md:w-11 md:h-11", anim: "about-float-c", delay: "1s" },
-  { Icon: Sandwich, className: "left-[2%] top-[55%] w-9 h-9 md:w-10 md:h-10", anim: "about-float-a", delay: "0.6s" },
-  { Icon: FriesIcon, className: "right-[4%] bottom-[8%] w-12 h-12 md:w-14 md:h-14", anim: "about-float-b", delay: "1.4s" },
-  { Icon: Coffee, className: "left-[42%] top-[4%] w-8 h-8 md:w-10 md:h-10 opacity-50", anim: "about-float-c", delay: "0.3s" },
-  { Icon: Wine, className: "right-[38%] bottom-[6%] w-8 h-8 md:w-10 md:h-10 opacity-50", anim: "about-float-a", delay: "0.9s" },
+  { Icon: CupSoda, className: "right-[4%] top-[6%] w-12 h-12 md:w-14 md:h-14", anim: "about-float-a", delay: "0s" },
+  { Icon: Sandwich, className: "right-[22%] top-[10%] w-11 h-11 md:w-[3.25rem] md:h-[3.25rem]", anim: "about-float-b", delay: "0.4s" },
+  { Icon: Coffee, className: "right-[6%] bottom-[18%] w-10 h-10 md:w-12 md:h-12", anim: "about-float-c", delay: "0.8s" },
+  { Icon: Wine, className: "right-[14%] bottom-[24%] w-10 h-10 md:w-12 md:h-12", anim: "about-float-a", delay: "1.2s" },
+  { Icon: FriesIcon, className: "right-[18%] top-[42%] w-11 h-11 md:w-[3.25rem] md:h-[3.25rem]", anim: "about-float-b", delay: "0.2s" },
+  { Icon: CupSoda, className: "right-[26%] top-[36%] w-9 h-9 md:w-11 md:h-11", anim: "about-float-c", delay: "1s" },
+  { Icon: Sandwich, className: "right-[3%] top-[54%] w-9 h-9 md:w-10 md:h-10", anim: "about-float-a", delay: "0.6s" },
+  { Icon: FriesIcon, className: "right-[5%] bottom-[8%] w-12 h-12 md:w-14 md:h-14", anim: "about-float-b", delay: "1.4s" },
+  { Icon: Coffee, className: "right-[32%] top-[5%] w-8 h-8 md:w-10 md:h-10 opacity-50", anim: "about-float-c", delay: "0.3s" },
+  { Icon: Wine, className: "right-[28%] bottom-[7%] w-8 h-8 md:w-10 md:h-10 opacity-50", anim: "about-float-a", delay: "0.9s" },
 ];
 
 type AboutFloatingDecorProps = {
@@ -50,7 +51,7 @@ type AboutFloatingDecorProps = {
 export function AboutFloatingDecor({ reducedMotion }: AboutFloatingDecorProps) {
   return (
     <div
-      className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
+      className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[min(100%,52%)] overflow-hidden select-none"
       aria-hidden
     >
       {ITEMS.map((item, i) => {
