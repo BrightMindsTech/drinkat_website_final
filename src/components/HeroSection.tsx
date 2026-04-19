@@ -68,7 +68,7 @@ const HeroSection = () => {
         >
           <MotionLink
             to="/menu"
-            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-2xl border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
+            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-none border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
             aria-label="Open full menu"
             {...playfulHoverTap(reducedMotion)}
           >
@@ -77,7 +77,7 @@ const HeroSection = () => {
           </MotionLink>
           <MotionLink
             to="/visit"
-            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center rounded-2xl border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
+            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center rounded-none border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
             {...playfulHoverTap(reducedMotion)}
           >
             Locations
@@ -86,7 +86,7 @@ const HeroSection = () => {
             href={CAREERS_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-2xl border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
+            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-none border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
             aria-label="Careers — opens application form in a new tab"
             {...playfulHoverTap(reducedMotion)}
           >

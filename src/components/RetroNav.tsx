@@ -20,8 +20,11 @@ const socialBarItems: {
   { label: "Drinkat on TikTok", href: "https://www.tiktok.com/@drinkat.jo", Icon: TikTokIcon },
 ];
 
-const iconBtnClass =
-  "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-primary/25 bg-background/90 text-primary shadow-sm backdrop-blur-sm transition-colors hover:bg-primary/10 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
+const iconLinkClass =
+  "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-none border-0 bg-transparent p-0 text-primary transition-opacity hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
+const talabatLinkClass =
+  "font-rounded inline-flex items-center gap-1 rounded-none border-0 bg-transparent px-1 py-1 text-primary transition-opacity hover:opacity-75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const RetroNav = () => {
   const reducedMotion = useReducedMotion();
@@ -62,14 +65,14 @@ const RetroNav = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className={iconBtnClass}
+              className={iconLinkClass}
             >
               <Icon className="h-4 w-4 sm:h-[1.125rem] sm:w-[1.125rem]" />
             </a>
           ))}
           <a
             href={CONTACT_PHONE_HREF}
-            className={iconBtnClass}
+            className={iconLinkClass}
             aria-label="Call Drinkat"
           >
             <Phone className="h-4 w-4 sm:h-[1.125rem] sm:w-[1.125rem]" aria-hidden />
@@ -78,10 +81,10 @@ const RetroNav = () => {
             href={TALABAT_RESTAURANT_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${iconBtnClass} w-auto gap-1 px-2 sm:px-2.5`}
+            className={talabatLinkClass}
             aria-label="Order on Talabat"
           >
-            <span className="font-rounded max-w-[3.25rem] truncate text-[10px] font-bold uppercase leading-tight tracking-tight sm:max-w-none sm:text-xs">
+            <span className="max-w-[3.25rem] truncate text-[10px] font-bold uppercase leading-tight tracking-tight sm:max-w-none sm:text-xs">
               Talabat
             </span>
             <ExternalLink className="h-3 w-3 shrink-0 opacity-80 sm:h-3.5 sm:w-3.5" aria-hidden />

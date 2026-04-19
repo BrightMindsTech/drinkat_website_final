@@ -57,13 +57,13 @@ export function NavExploreSheet({ triggerVariant = "nav" }: NavExploreSheetProps
       <SheetTrigger asChild>
         <Button
           type="button"
-          variant="outline"
+          variant="ghost"
           size="icon"
           className={cn(
-            "shrink-0 rounded-full shadow-sm backdrop-blur-sm",
+            "shrink-0 rounded-none border-0 shadow-none ring-0 ring-offset-0",
             isHero
-              ? "border-white/35 bg-black/30 text-white hover:bg-black/45 hover:text-white"
-              : "border-primary/40 bg-background/80 text-primary hover:bg-primary/10",
+              ? "text-white hover:bg-white/10 hover:text-white"
+              : "text-primary hover:bg-primary/5 hover:text-primary",
           )}
           aria-label="Open navigation menu"
         >
