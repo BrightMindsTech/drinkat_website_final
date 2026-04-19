@@ -2,9 +2,9 @@ import { Seo } from "@/components/seo/Seo";
 import { homePageJsonLd } from "@/components/seo/jsonLd";
 import RetroNav from "@/components/RetroNav";
 import HeroSection from "@/components/HeroSection";
-import ParallaxSection from "@/components/ParallaxSection";
+import AboutDrinkatSection from "@/components/AboutDrinkatSection";
 import MenuSection from "@/components/MenuSection";
-import AboutSection from "@/components/AboutSection";
+import SocialsSection from "@/components/SocialsSection";
 import VisitSection from "@/components/VisitSection";
 import ContactFab from "@/components/ContactFab";
 import RetroFooter from "@/components/RetroFooter";
@@ -15,9 +15,19 @@ const Index = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const raw = location.hash.replace(/^#/, "");
-    if (!raw) return;
-    const id = decodeURIComponent(raw);
+    const raw = location.hash.replace(/^#/, "").trim();
+
+    // No fragment: stay at the top so the hero is visible (avoids leftover scroll from layout/fonts).
+    if (!raw) {
+      const t = window.setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      }, 0);
+      return () => clearTimeout(t);
+    }
+
+    const decoded = decodeURIComponent(raw);
+    /** Old "About" section became Socials — keep bookmarks working */
+    const id = decoded === "about" ? "socials" : decoded;
 
     const scrollToTarget = () => {
       const el = document.getElementById(id);
@@ -28,6 +38,9 @@ const Index = () => {
 
     scrollToTarget();
     const t0 = window.setTimeout(scrollToTarget, 0);
+    if (decoded === "about") {
+      window.history.replaceState(null, "", `${location.pathname}#socials`);
+    }
     return () => clearTimeout(t0);
   }, [location.pathname, location.hash]);
 
@@ -41,11 +54,11 @@ const Index = () => {
         jsonLd={homePageJsonLd()}
       />
       <RetroNav />
-      <main className="relative">
+      <main className="relative flex flex-col">
         <HeroSection />
-        <ParallaxSection />
+        <AboutDrinkatSection />
         <MenuSection />
-        <AboutSection />
+        <SocialsSection />
         <VisitSection />
       </main>
       <ContactFab />

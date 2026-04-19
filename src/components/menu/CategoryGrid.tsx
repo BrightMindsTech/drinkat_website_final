@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import { ImageOff } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import {
-  playfulHoverTap,
-  riseIn,
-  sectionStagger,
-  sectionViewport,
-} from "@/lib/motion";
+import { playfulHoverTap, riseIn, sectionViewportEasy } from "@/lib/motion";
 import type { Category } from "./menuData";
 import { cn } from "@/lib/utils";
 
@@ -25,20 +20,19 @@ export function CategoryGrid({
   const reducedMotion = useReducedMotion();
 
   return (
-    <motion.div
+    <div
       className={cn(
         "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl mx-auto justify-items-center",
         className,
       )}
-      initial="hidden"
-      whileInView="visible"
-      viewport={sectionViewport}
-      variants={sectionStagger(reducedMotion, 0.05)}
     >
       {categories.map((cat) => (
         <motion.div
           key={cat.id}
           className="w-full max-w-[200px] sm:max-w-none"
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportEasy}
           variants={riseIn(reducedMotion, 14)}
         >
           <Link
@@ -82,6 +76,6 @@ export function CategoryGrid({
           </Link>
         </motion.div>
       ))}
-    </motion.div>
+    </div>
   );
 }

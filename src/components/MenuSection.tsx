@@ -1,120 +1,23 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, A11y } from "swiper/modules";
-import type { Swiper as SwiperInstance } from "swiper";
-import "swiper/css";
 import palmTree from "@/assets/palm-tree.png";
 import WarpedCheckerboard from "./WarpedCheckerboard";
 import {
   playfulHoverTap,
   riseIn,
-  scaleIn,
-  sectionStagger,
-  sectionViewport,
+  sectionViewportEasy,
 } from "@/lib/motion";
 import { allCategories } from "./menu/menuData";
 import { CategoryGrid } from "./menu/CategoryGrid";
 import { TalabatMoreOnBanner } from "./menu/TalabatMenuPromo";
 
-const FEATURED_INTERVAL_MS = 2500;
-
-/** Local featured photos from public folder (cycle through 4 images for 7 items) */
-const FEATURED_IMAGE_NAMES = [
-  "/FeaturedItems/Featured1.jpg",
-  "/FeaturedItems/Featured5.jpg",
-  "/FeaturedItems/Featured6.jpg",
-  "/FeaturedItems/Featured2.jpg",
-  "/FeaturedItems/Featured3.jpg",
-  "/FeaturedItems/Featured4.jpg",
-];
-
-function FeaturedCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
-  const total = FEATURED_IMAGE_NAMES.length;
-  const reducedMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      className="w-full max-w-md mx-auto mb-10 md:mb-12"
-      initial="hidden"
-      whileInView="visible"
-      viewport={sectionViewport}
-      variants={sectionStagger(reducedMotion)}
-    >
-      <motion.p
-        className="font-rounded font-semibold text-primary-foreground/80 text-xs uppercase tracking-widest text-center mb-3"
-        variants={riseIn(reducedMotion, 14)}
-      >
-        Featured
-      </motion.p>
-      <Swiper
-        modules={[Autoplay, A11y]}
-        onSwiper={setSwiper}
-        onSlideChange={(s) => setActiveIndex(s.realIndex)}
-        loop={total > 1}
-        slidesPerView={1}
-        speed={reducedMotion ? 0 : 500}
-        allowTouchMove={total > 1}
-        autoplay={
-          reducedMotion || total <= 1
-            ? false
-            : {
-                delay: FEATURED_INTERVAL_MS,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }
-        }
-        className="overflow-hidden rounded-2xl"
-      >
-        {FEATURED_IMAGE_NAMES.map((src) => (
-          <SwiperSlide key={src}>
-            <motion.div
-              className="w-full rounded-2xl overflow-hidden bg-primary-foreground/10 aspect-[1/1]"
-              variants={scaleIn(reducedMotion)}
-            >
-              <img
-                src={src}
-                alt=""
-                className="h-full w-full object-cover object-center"
-              />
-            </motion.div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      {total > 1 && (
-        <motion.div
-          className="flex justify-center gap-2 mt-3"
-          variants={riseIn(reducedMotion, 10)}
-        >
-          {FEATURED_IMAGE_NAMES.map((_, i) => (
-            <motion.button
-              key={i}
-              onClick={() => swiper?.slideToLoop(i)}
-              className={`h-1.5 rounded-full transition-all w-6 ${i === activeIndex ? "bg-primary-foreground" : "bg-primary-foreground/40"}`}
-              aria-label={`Featured ${i + 1}`}
-              {...playfulHoverTap(reducedMotion)}
-            />
-          ))}
-        </motion.div>
-      )}
-    </motion.div>
-  );
-}
-
 const MenuSection = () => {
   const reducedMotion = useReducedMotion();
 
   return (
-    <motion.section
+    <section
       id="menu"
       className="bg-primary py-16 md:py-24 relative overflow-hidden"
-      initial="hidden"
-      whileInView="visible"
-      viewport={sectionViewport}
-      variants={sectionStagger(reducedMotion, 0.06)}
     >
       <div
         className="absolute top-0 left-0 right-0 z-20 h-5 w-full"
@@ -148,6 +51,9 @@ const MenuSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           className="text-center mb-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportEasy}
           variants={riseIn(reducedMotion, 20)}
         >
           <motion.h2
@@ -156,18 +62,13 @@ const MenuSection = () => {
           >
             Menu Drinkat
           </motion.h2>
-          {/* <motion.p
-            className="font-rounded font-semibold text-primary-foreground/80 uppercase tracking-[0.2em] text-sm"
-            variants={riseIn(reducedMotion, 14)}
-          >
-            Made fresh, served with a smile
-          </motion.p> */}
         </motion.div>
-
-        <FeaturedCarousel />
 
         <motion.h3
           className="font-rounded font-bold text-primary-foreground/90 text-sm uppercase tracking-widest text-center mb-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportEasy}
           variants={riseIn(reducedMotion, 16)}
         >
           Browse by category
@@ -175,6 +76,9 @@ const MenuSection = () => {
 
         <motion.div
           className="rounded-3xl bg-white/95 shadow-lg px-4 py-8 md:px-8 md:py-10 max-w-6xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportEasy}
           variants={riseIn(reducedMotion, 12)}
         >
           <TalabatMoreOnBanner />
@@ -183,6 +87,9 @@ const MenuSection = () => {
 
         <motion.p
           className="text-center mt-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewportEasy}
           variants={riseIn(reducedMotion, 12)}
         >
           <Link
@@ -193,7 +100,7 @@ const MenuSection = () => {
           </Link>
         </motion.p>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

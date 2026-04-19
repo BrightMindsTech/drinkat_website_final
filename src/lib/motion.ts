@@ -2,6 +2,9 @@ import type { TargetAndTransition, Transition, Variants } from "framer-motion";
 
 export const sectionViewport = { once: true, amount: 0.2 };
 
+/** Easier scroll trigger than default `amount` — use when nested sections must not stay `opacity: 0` */
+export const sectionViewportEasy = { once: true, amount: 0.08 as const };
+
 const springTransition: Transition = {
   type: "spring",
   stiffness: 130,

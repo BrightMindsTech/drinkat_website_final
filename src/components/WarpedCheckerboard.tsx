@@ -1,6 +1,16 @@
-const WarpedCheckerboard = ({ className = "", invert = false }: { className?: string; invert?: boolean }) => {
+type WarpedCheckerboardProps = {
+  className?: string;
+  invert?: boolean;
+  /** Per-tile opacity (default tuned for primary bg; use ~0.1–0.14 on white backgrounds). */
+  tileOpacity?: number;
+};
+
+const WarpedCheckerboard = ({
+  className = "",
+  invert = false,
+  tileOpacity = 0.08,
+}: WarpedCheckerboardProps) => {
   const fill = invert ? "hsl(var(--primary-foreground))" : "hsl(var(--primary))";
-  const fillAlt = invert ? "hsl(var(--primary) / 0.15)" : "hsl(var(--primary-foreground) / 0.15)";
 
   // Generate a grid of warped checker squares
   const cols = 8;
@@ -37,7 +47,7 @@ const WarpedCheckerboard = ({ className = "", invert = false }: { className?: st
           key={`${row}-${col}`}
           points={`${p1.x},${p1.y} ${p2.x},${p2.y} ${p3.x},${p3.y} ${p4.x},${p4.y}`}
           fill={fill}
-          opacity={0.08}
+          opacity={tileOpacity}
         />
       );
     }

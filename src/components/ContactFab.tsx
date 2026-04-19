@@ -1,13 +1,13 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { Briefcase, Mail, MessageCircle, Phone } from "lucide-react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useContactDialog } from "@/context/ContactDialogContext";
 import { playfulHoverTap } from "@/lib/motion";
 
 const PHONE_DISPLAY = "07 9663 2111";
@@ -15,11 +15,15 @@ const PHONE_HREF = "tel:+962796632111";
 const EMAIL = "drinkatjo@gmail.com";
 const MAILTO = `mailto:${EMAIL}`;
 
+const CAREERS_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScsr4erBQvOUwT2dNOZMcnz-cY_HlGrxUelzTbtU9TAwc5u0A/viewform";
+
 const ContactFab = () => {
   const reducedMotion = useReducedMotion();
+  const { open, setOpen } = useContactDialog();
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <motion.button
           type="button"
@@ -49,6 +53,20 @@ const ContactFab = () => {
           </DialogDescription> */}
         </DialogHeader>
         <div className="flex flex-col gap-4 pt-2">
+          <a
+            href={CAREERS_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 rounded-xl border-2 border-primary bg-card p-4 font-rounded font-bold text-primary hover:bg-secondary/80 transition-colors"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+              <Briefcase className="h-5 w-5" />
+            </span>
+            <span className="text-base uppercase tracking-wide">Careers</span>
+          </a>
+          <p className="font-rounded text-center text-sm font-bold uppercase tracking-[0.12em] text-primary/90">
+            Complaints & suggestions
+          </p>
           <a
             href={PHONE_HREF}
             className="flex items-center gap-4 rounded-xl border-2 border-primary bg-card p-4 font-rounded font-bold text-primary hover:bg-secondary/80 transition-colors"

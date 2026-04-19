@@ -26,6 +26,7 @@ export function homePageJsonLd() {
         sameAs: [
           "https://instagram.com/drinkatjo",
           "https://www.facebook.com/Jodrinkat/",
+          "https://www.tiktok.com/@drinkat.jo",
         ],
       },
       {

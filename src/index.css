@@ -122,6 +122,15 @@
     font-family: "Cocon Next Arabic", sans-serif;
   }
 
+  /* Hero carousel: allow scroll without showing a scrollbar */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   .retro-border-top {
     position: relative;
     padding-top: 16px;
@@ -240,12 +249,50 @@
     animation: category-shake 2s ease-in-out infinite;
   }
 
-  /* Hero buttons – black, 70% transparent */
-  .hero-btn-checkerboard {
-    background-color: rgba(0, 0, 0, 0.3);
+  /* About section — floating food/drink icons (background) */
+  @keyframes about-float-a {
+    0%, 100% {
+      transform: translate(0, 0) rotate(-7deg);
+    }
+    50% {
+      transform: translate(12px, -18px) rotate(8deg);
+    }
   }
-  .hero-btn-checkerboard:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+  @keyframes about-float-b {
+    0%, 100% {
+      transform: translate(0, 0) rotate(6deg);
+    }
+    50% {
+      transform: translate(-14px, 16px) rotate(-9deg);
+    }
+  }
+  @keyframes about-float-c {
+    0%, 100% {
+      transform: translate(0, 0) rotate(-4deg);
+    }
+    33% {
+      transform: translate(-10px, -12px) rotate(7deg);
+    }
+    66% {
+      transform: translate(12px, 8px) rotate(-6deg);
+    }
+  }
+  .animate-about-float-a {
+    animation: about-float-a 9s ease-in-out infinite;
+  }
+  .animate-about-float-b {
+    animation: about-float-b 11s ease-in-out infinite;
+  }
+  .animate-about-float-c {
+    animation: about-float-c 8s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-about-float-a,
+    .animate-about-float-b,
+    .animate-about-float-c {
+      animation: none;
+    }
   }
 
 }

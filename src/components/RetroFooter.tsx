@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const footerLinks: { label: string; to: string }[] = [
   { label: "Home", to: "/#home" },
   { label: "Menu", to: "/menu" },
-  { label: "About", to: "/#about" },
+  { label: "Socials", to: "/#socials" },
   { label: "Visit Us", to: "/#visit-us" },
 ];
 
@@ -39,7 +39,7 @@ const RetroFooter = () => {
         <RetroBorder />
 
         <p className="font-rounded text-primary/40 text-xs mt-6 tracking-wider uppercase">
-          © 2025 Drinkat — All rights reserved
+          © 2026 Drinkat — All rights reserved
         </p>
       </div>
     </footer>
