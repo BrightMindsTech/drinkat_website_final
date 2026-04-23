@@ -58,9 +58,9 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      <div className="absolute inset-x-0 bottom-28 z-10 flex justify-start px-4 pt-2 sm:bottom-32 sm:px-8 md:bottom-40 md:px-10 lg:bottom-44 lg:px-14">
+      <div className="absolute inset-x-0 bottom-14 z-10 flex justify-center px-4 pt-2 sm:bottom-18 sm:px-6 md:bottom-24 md:px-10 lg:bottom-28 lg:px-14">
         <motion.nav
-          className="flex flex-col items-start gap-3 sm:gap-4"
+          className="flex flex-row items-center gap-2 sm:gap-3"
           aria-label="Quick links"
           initial={reducedMotion ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ const HeroSection = () => {
         >
           <MotionLink
             to="/menu"
-            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-none border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
+            className="font-rounded inline-flex min-h-[2.75rem] items-center justify-center gap-1.5 rounded-none border-0 bg-white/10 px-4 py-2.5 text-sm font-medium uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.25rem] sm:gap-2 sm:px-7 sm:py-3.5 sm:text-base"
             aria-label="Open full menu"
             {...playfulHoverTap(reducedMotion)}
           >
@@ -77,7 +77,7 @@ const HeroSection = () => {
           </MotionLink>
           <MotionLink
             to="/visit"
-            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center rounded-none border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
+            className="font-rounded inline-flex min-h-[2.75rem] items-center justify-center rounded-none border-0 bg-white/10 px-4 py-2.5 text-sm font-medium uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.25rem] sm:px-7 sm:py-3.5 sm:text-base"
             {...playfulHoverTap(reducedMotion)}
           >
             Locations
@@ -86,7 +86,7 @@ const HeroSection = () => {
             href={CAREERS_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-rounded inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-none border-0 bg-white/10 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.5rem] sm:px-8 sm:py-4 sm:text-lg"
+            className="font-rounded inline-flex min-h-[2.75rem] items-center justify-center gap-1.5 rounded-none border-0 bg-white/10 px-4 py-2.5 text-sm font-medium uppercase tracking-wide text-white shadow-none outline-none ring-0 backdrop-blur-sm transition-[opacity,background-color,transform] hover:bg-white/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 active:scale-[0.98] sm:min-h-[3.25rem] sm:gap-2 sm:px-7 sm:py-3.5 sm:text-base"
             aria-label="Careers — opens application form in a new tab"
             {...playfulHoverTap(reducedMotion)}
           >
