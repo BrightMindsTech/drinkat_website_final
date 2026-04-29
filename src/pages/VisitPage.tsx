@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Seo } from "@/components/seo/Seo";
+import { visitPageJsonLd } from "@/components/seo/jsonLd";
 import RetroNav from "@/components/RetroNav";
 import RetroFooter from "@/components/RetroFooter";
 import ContactFab from "@/components/ContactFab";
@@ -13,6 +14,7 @@ const VisitPage = () => {
         title="Visit Us — Drinkat"
         description="Drinkat branches on Airport Road Amman, Hashemite University Zarqa, and Middle East University Amman."
         path="/visit"
+        jsonLd={visitPageJsonLd()}
       />
       <RetroNav />
       <main className="relative pt-24 md:pt-28">

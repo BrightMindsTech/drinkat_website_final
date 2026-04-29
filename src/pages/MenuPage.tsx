@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Seo } from "@/components/seo/Seo";
+import { menuPageJsonLd } from "@/components/seo/jsonLd";
 import RetroNav from "@/components/RetroNav";
 import RetroFooter from "@/components/RetroFooter";
 import ContactFab from "@/components/ContactFab";
@@ -15,6 +16,7 @@ const MenuPage = () => {
         title="Menu"
         description="Browse Drinkat drinks and food by category — juices, mocktails, coffee, milkshakes, burgers, and more. Order on Talabat or visit us in Amman and Zarqa."
         path="/menu"
+        jsonLd={menuPageJsonLd()}
       />
       <RetroNav />
       <main className="relative pt-24 md:pt-28 pb-16 md:pb-24">

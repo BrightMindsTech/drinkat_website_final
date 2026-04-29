@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Seo } from "@/components/seo/Seo";
+import { socialsPageJsonLd } from "@/components/seo/jsonLd";
 import RetroNav from "@/components/RetroNav";
 import RetroFooter from "@/components/RetroFooter";
 import ContactFab from "@/components/ContactFab";
@@ -13,6 +14,7 @@ const SocialsPage = () => {
         title="Socials — Drinkat"
         description="Follow Drinkat on Instagram, Facebook, and TikTok — daily reels, menu drops, and community updates."
         path="/socials"
+        jsonLd={socialsPageJsonLd()}
       />
       <RetroNav />
       <main className="relative pt-24 md:pt-28">
